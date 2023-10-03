@@ -10,7 +10,7 @@ datasource db {
 model Paciente {
   id        Int      @id @default(autoincrement())
   nomePcnte String
-  senha     Int
+  senha     Int      @unique
   usuario   String
   consulta Consulta?
 }

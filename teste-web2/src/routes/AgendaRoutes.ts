@@ -3,10 +3,10 @@ import AgendaController from "../controllers/AgendaController";
 
 const AgendaRouter = Router();
 
-AgendaRouter.get("/agendas", AgendaController.listarAgendas);
-AgendaRouter.post("/agenda", AgendaController.criarAgenda);
-AgendaRouter.get("/agenda/:id", AgendaController.obterAgenda);
-AgendaRouter.patch("/agenda/:id", AgendaController.atualizarAgenda);
-AgendaRouter.delete("/agenda/:id", AgendaController.deletarAgenda);
+AgendaRouter.get("/listar", AgendaController.listarAgendas);
+AgendaRouter.post("/criar", AgendaController.criarAgenda);
+AgendaRouter.get("/:id", AgendaController.obterAgenda);
+AgendaRouter.patch("/:id", AgendaController.atualizarAgenda);
+AgendaRouter.delete("/:id", AgendaController.deletarAgenda);
 
 export default AgendaRouter;
