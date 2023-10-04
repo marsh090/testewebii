@@ -17,11 +17,15 @@ app.use("/api/secretaria", SecretariaRouter);
 app.use("/api/consulta", ConsultaRouter);
 app.use("/api/agenda", AgendaRouter);
 
-if (process.env.PORT) {
-  app.listen(process.env.PORT, () => {
-    console.log(`Server running on port ${process.env.PORT}`);
-  });
-} else {
-  console.log("Fail to load environment");
+try {
+  const PORT = process.env.PORT;
+  if (PORT) {
+    app.listen(PORT, () => {
+      console.log(`Server rodando na porta: http://localhost:${PORT}`);
+    });
+  } else {
+    throw new Error("PORT não definida no .env");
+  }
+} catch (error) {
+  console.error(`Falha ao carregar rodar o servidor: ${(error as Error).message}`);
 }
-
